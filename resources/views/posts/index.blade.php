@@ -25,6 +25,7 @@
                     <th width="5%">#</th>
                     <th width="20%">Title</th>
                     <th>Content</th>
+                    <th>Image</th>
                     <th width="25%">Actions</th>
                 </tr>
             </thead>
@@ -34,6 +35,11 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $post->title }}</td>
                     <td>{{ Str::limit($post->content, 80) }}</td>
+                    <td>
+                        @if($post->image_path)
+                            <img src="{{ asset('storage/'.$post->image_path) }}" width="100" class="img-thumbnail" alt="Post image">
+                        @endif
+                    </td>
                     <td>
                         <a href="{{ route('posts.show', $post) }}" class="btn btn-sm btn-info">View</a>
                         <a href="{{ route('posts.edit', $post) }}" class="btn btn-sm btn-warning">Edit</a>

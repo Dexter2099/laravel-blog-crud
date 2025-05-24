@@ -6,6 +6,7 @@ A simple blog application demonstrating basic CRUD (Create, Read, Update, Delete
 - Manage blog posts with a clean CRUD interface.
 - Blade views styled with Tailwind CSS and built using Vite.
 - Ships with SQLite configuration for quick local setup.
+- Attach images to posts using the Laravel file system.
 
 ## Requirements
 - PHP 8.2 or higher
@@ -33,6 +34,10 @@ A simple blog application demonstrating basic CRUD (Create, Read, Update, Delete
 5. Run the database migrations:
    ```bash
    php artisan migrate
+   ```
+6. Create the storage symbolic link so uploaded images are publicly accessible:
+   ```bash
+   php artisan storage:link
    ```
 
 ## Running the App
