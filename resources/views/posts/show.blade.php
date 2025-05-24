@@ -17,6 +17,9 @@
             <h3>{{ $post->title }}</h3>
         </div>
         <div class="card-body">
+            @if($post->image_path)
+                <img src="{{ asset('storage/'.$post->image_path) }}" class="img-fluid mb-3" alt="Post image">
+            @endif
             <p>{{ $post->content }}</p>
         </div>
         <div class="card-footer text-muted">
