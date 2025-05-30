@@ -7,6 +7,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 use App\Models\Post;
+use App\Models\User;
 
 class PostImageUploadTest extends TestCase
 {
@@ -16,7 +17,9 @@ class PostImageUploadTest extends TestCase
     {
         Storage::fake('public');
 
-        $response = $this->post('/posts', [
+        $user = User::factory()->create(['role' => 'admin']);
+
+        $response = $this->actingAs($user)->post('/posts', [
             'title' => 'With Image',
             'content' => 'Content',
             'image' => UploadedFile::fake()->image('photo.jpg'),
