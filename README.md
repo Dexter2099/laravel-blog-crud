@@ -7,6 +7,7 @@ A simple blog application demonstrating basic CRUD (Create, Read, Update, Delete
 - Blade views styled with Tailwind CSS and built using Vite.
 - Ships with SQLite configuration for quick local setup.
 - Attach images to posts using the Laravel file system.
+- Simple login and registration so only admins can manage posts.
 
 ## Requirements
 - PHP 8.2 or higher
@@ -52,6 +53,10 @@ For a production build of assets use:
 ```bash
 npm run build
 ```
+
+## Authentication
+Register a user or log in using the links in the blog index. Only users with the
+`admin` role may create, edit or delete posts.
 
 ## Testing
 Run the test suite with:
