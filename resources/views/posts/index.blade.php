@@ -16,7 +16,23 @@
         </div>
     @endif
 
-    <a href="{{ route('posts.create') }}" class="btn btn-primary mb-3">+ New Post</a>
+    <div class="d-flex justify-content-end mb-3">
+        @auth
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button class="btn btn-link">Logout</button>
+            </form>
+        @else
+            <a href="{{ route('login') }}" class="btn btn-link">Login</a>
+            <a href="{{ route('register') }}" class="btn btn-link">Register</a>
+        @endauth
+    </div>
+
+    @auth
+        @if(auth()->user()->role === 'admin')
+            <a href="{{ route('posts.create') }}" class="btn btn-primary mb-3">+ New Post</a>
+        @endif
+    @endauth
 
     @if($posts->count())
         <table class="table table-bordered table-striped">
